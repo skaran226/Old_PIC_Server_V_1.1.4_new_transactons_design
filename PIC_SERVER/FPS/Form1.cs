@@ -338,9 +338,11 @@ namespace FPS
             Form1.s = 1;
             Form1.i = 1;
 
-            Display.ChangeView(2);
+            new Transactions_View().Show();
+          //  DB.UpdateCompletedTransView();
+           /* Display.ChangeView(2);
             
-            EnableDisableUpDown();
+            EnableDisableUpDown();*/
 
         }
 
@@ -351,6 +353,8 @@ namespace FPS
 
             Display.ChangeView(3);
             EnableDisableUpDown();
+
+            
         }
 
         private void btCash_Click(object sender, EventArgs e)

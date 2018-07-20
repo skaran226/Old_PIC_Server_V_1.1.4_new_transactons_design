@@ -1547,6 +1547,8 @@ namespace FPS
         public static int iView = 0;
         public static List<Color> lColors = new List<Color>();
 
+        
+
         public static void Init()
         {
             iCurrentScreen = 0;
@@ -1577,6 +1579,41 @@ namespace FPS
 
             ChangeView(1);
             screen1.ShowThis();
+        }
+
+        public static Transactions_View tb = new Transactions_View();
+        public static void Update_Transactions_ButtonText(int index, string lbl)
+        {
+            if (index == 1)
+            {
+
+                Transactions_View.SetButtonText(tb.One, lbl);
+            }
+
+            if (index == 2)
+            {
+                Transactions_View.SetButtonText(tb.Two, lbl);
+            }
+
+            if (index == 3)
+            {
+                Transactions_View.SetButtonText(tb.Three, lbl);
+            }
+
+            if (index == 4)
+            {
+                Transactions_View.SetButtonText(tb.Four, lbl);
+            }
+
+            if (index == 5)
+            {
+                Transactions_View.SetButtonText(tb.Five, lbl);
+            }
+
+            if (index == 6)
+            {
+                Transactions_View.SetButtonText(tb.Six, lbl);
+            }
         }
 
         public static void ChangeView(int iNewView)
@@ -4362,7 +4399,7 @@ namespace FPS
 
       /* static TimerCallback timer_GGeneratePIC_Cash_report = new TimerCallback(Auto_GeneratePIC_Cash_Report);
        static System.Threading.Timer GeneratePIC_Cash_report_stateTimer = new System.Threading.Timer(timer_GGeneratePIC_Cash_report, null, 980, 980);*/
-
+       //public static Transactions_View tb = new Transactions_View();
 
        private static void Auto_GenerateEodReport(Object stateInfo)
         {
@@ -4806,6 +4843,9 @@ namespace FPS
             SqlDataReader drRecordSet;*/
             TransStruct myTransStruct;
 
+            
+         
+
 
             Debug.WriteLine("UPDATE COMPLETE TRANSACTIONS VIEW");
 
@@ -4840,11 +4880,11 @@ namespace FPS
                 iCount++;
             }
 
-            for (iIndex = 0; iIndex <= 10; iIndex++)
+            for (iIndex = 0; iIndex <= 6; iIndex++)
             {
                 if (iIndex < iCount)
                 {
-                    Display.UpdateButtonText(iIndex + 1, "PUMP: " + lCompletedTrans[iIndex].sPump + " @ " + lCompletedTrans[iIndex].sShowTime + "\nPAID: $" + lCompletedTrans[iIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iIndex].sChange);
+                    Display.Update_Transactions_ButtonText(iIndex + 1, "PUMP: " + lCompletedTrans[iIndex].sPump + " @ " + lCompletedTrans[iIndex].sShowTime + "PAID: $" + lCompletedTrans[iIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iIndex].sChange);
                 }
             }
             dbCmd.Dispose();

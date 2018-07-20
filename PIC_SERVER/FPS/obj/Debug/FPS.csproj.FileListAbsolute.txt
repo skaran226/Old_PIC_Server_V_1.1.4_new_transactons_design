@@ -71,3 +71,16 @@ C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.2-master\PIC_SERVER\FPS\obj\Debug\FP
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.2-master\PIC_SERVER\FPS\obj\Debug\FPS.Validate.resources
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.2-master\PIC_SERVER\FPS\obj\Debug\FPS.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.2-master\PIC_SERVER\FPS\obj\Debug\FPS.Months.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.exe
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.pdb
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\bin\Debug\FPS.exe
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\bin\Debug\FPS.pdb
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Form1.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Months.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.MsgBox.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Properties.Resources.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.SetDataTime.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Transactions_View.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Validate.resources
+C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.csproj.GenerateResource.Cache
