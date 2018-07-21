@@ -1581,40 +1581,9 @@ namespace FPS
             screen1.ShowThis();
         }
 
-        public static Transactions_View tb = new Transactions_View();
-        public static void Update_Transactions_ButtonText(int index, string lbl)
-        {
-            if (index == 1)
-            {
+       // public static Transactions_View tb = new Transactions_View();
 
-                Transactions_View.SetButtonText(tb.One, lbl);
-            }
-
-            if (index == 2)
-            {
-                Transactions_View.SetButtonText(tb.Two, lbl);
-            }
-
-            if (index == 3)
-            {
-                Transactions_View.SetButtonText(tb.Three, lbl);
-            }
-
-            if (index == 4)
-            {
-                Transactions_View.SetButtonText(tb.Four, lbl);
-            }
-
-            if (index == 5)
-            {
-                Transactions_View.SetButtonText(tb.Five, lbl);
-            }
-
-            if (index == 6)
-            {
-                Transactions_View.SetButtonText(tb.Six, lbl);
-            }
-        }
+    
 
         public static void ChangeView(int iNewView)
         {
@@ -1985,7 +1954,10 @@ namespace FPS
             }
             else if (iView == 2)
             {
-                DB.UpdateCompletedTransView();
+               // DB.UpdateCompletedTransView();
+
+              /*  Transactions_View.UpdateCompletedTransView();
+                new Transactions_View().Show();*/
             }
             else if (iView == 3)
             {
@@ -4833,14 +4805,13 @@ namespace FPS
             //CloseConn();
         }
 
-        public static void UpdateCompletedTransView()
+       /* public static void UpdateCompletedTransView()
         {
             int iIndex, iCount;
             string sQuery;
             OleDbCommand dbCmd;
             OleDbDataReader drRecordSet;
-           /* SqlCommand dbCmd;
-            SqlDataReader drRecordSet;*/
+           
             TransStruct myTransStruct;
 
             
@@ -4884,13 +4855,13 @@ namespace FPS
             {
                 if (iIndex < iCount)
                 {
-                    Display.Update_Transactions_ButtonText(iIndex + 1, "PUMP: " + lCompletedTrans[iIndex].sPump + " @ " + lCompletedTrans[iIndex].sShowTime + "PAID: $" + lCompletedTrans[iIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iIndex].sChange);
+                  // Transactions_View.Update_Transactions_ButtonText(iIndex + 1, "PUMP: " + lCompletedTrans[iIndex].sPump + " @ " + lCompletedTrans[iIndex].sShowTime + "PAID: $" + lCompletedTrans[iIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iIndex].sChange);
                 }
             }
             dbCmd.Dispose();
             drRecordSet.Dispose();
             SQL_SERVER.Close_Sql_Sever_Conn();
-        }
+        }*/
 
         public static void GenerateEodReport()
         {

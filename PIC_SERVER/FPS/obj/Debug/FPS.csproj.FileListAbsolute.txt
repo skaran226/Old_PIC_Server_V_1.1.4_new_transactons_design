@@ -84,3 +84,16 @@ C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Transactions_View.resources
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Validate.resources
 C:\Users\Admin\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.csproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.exe
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.pdb
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\bin\Debug\FPS.exe
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\bin\Debug\FPS.pdb
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Form1.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Months.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.MsgBox.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Properties.Resources.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.SetDataTime.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Transactions_View.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.Validate.resources
+C:\Users\DELL\Desktop\Old_PIC_Server_V_1.1.4_new_transactons_design-master\PIC_SERVER\FPS\obj\Debug\FPS.csproj.GenerateResource.Cache

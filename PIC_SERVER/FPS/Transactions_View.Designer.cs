@@ -64,9 +64,10 @@
             // 
             this.previous_month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.previous_month.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previous_month.Location = new System.Drawing.Point(12, 12);
+            this.previous_month.Location = new System.Drawing.Point(9, 10);
+            this.previous_month.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previous_month.Name = "previous_month";
-            this.previous_month.Size = new System.Drawing.Size(140, 53);
+            this.previous_month.Size = new System.Drawing.Size(105, 43);
             this.previous_month.TabIndex = 0;
             this.previous_month.Text = "Previous Month";
             this.previous_month.UseVisualStyleBackColor = true;
@@ -75,9 +76,10 @@
             // 
             this.next_month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.next_month.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next_month.Location = new System.Drawing.Point(362, 12);
+            this.next_month.Location = new System.Drawing.Point(272, 10);
+            this.next_month.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.next_month.Name = "next_month";
-            this.next_month.Size = new System.Drawing.Size(140, 53);
+            this.next_month.Size = new System.Drawing.Size(105, 43);
             this.next_month.TabIndex = 0;
             this.next_month.Text = "Next Month";
             this.next_month.UseVisualStyleBackColor = true;
@@ -86,9 +88,10 @@
             // 
             this.previous_day.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.previous_day.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previous_day.Location = new System.Drawing.Point(12, 84);
+            this.previous_day.Location = new System.Drawing.Point(9, 68);
+            this.previous_day.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previous_day.Name = "previous_day";
-            this.previous_day.Size = new System.Drawing.Size(140, 53);
+            this.previous_day.Size = new System.Drawing.Size(105, 43);
             this.previous_day.TabIndex = 0;
             this.previous_day.Text = "Previous Day";
             this.previous_day.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // 
             this.next_day.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.next_day.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next_day.Location = new System.Drawing.Point(362, 84);
+            this.next_day.Location = new System.Drawing.Point(272, 68);
+            this.next_day.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.next_day.Name = "next_day";
-            this.next_day.Size = new System.Drawing.Size(140, 53);
+            this.next_day.Size = new System.Drawing.Size(105, 43);
             this.next_day.TabIndex = 0;
             this.next_day.Text = "Next Day";
             this.next_day.UseVisualStyleBackColor = true;
@@ -108,9 +112,10 @@
             // 
             this.previous_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.previous_btn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previous_btn.Location = new System.Drawing.Point(12, 470);
+            this.previous_btn.Location = new System.Drawing.Point(9, 382);
+            this.previous_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previous_btn.Name = "previous_btn";
-            this.previous_btn.Size = new System.Drawing.Size(140, 53);
+            this.previous_btn.Size = new System.Drawing.Size(105, 43);
             this.previous_btn.TabIndex = 0;
             this.previous_btn.Text = "Previous";
             this.previous_btn.UseVisualStyleBackColor = true;
@@ -119,9 +124,10 @@
             // 
             this.next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.next_btn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next_btn.Location = new System.Drawing.Point(362, 470);
+            this.next_btn.Location = new System.Drawing.Point(272, 382);
+            this.next_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.next_btn.Name = "next_btn";
-            this.next_btn.Size = new System.Drawing.Size(140, 53);
+            this.next_btn.Size = new System.Drawing.Size(105, 43);
             this.next_btn.TabIndex = 0;
             this.next_btn.Text = "Next";
             this.next_btn.UseVisualStyleBackColor = true;
@@ -130,69 +136,82 @@
             // 
             this.One.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.One.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.One.Location = new System.Drawing.Point(13, 150);
+            this.One.Location = new System.Drawing.Point(10, 122);
+            this.One.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.One.Name = "One";
-            this.One.Size = new System.Drawing.Size(490, 49);
+            this.One.Size = new System.Drawing.Size(368, 40);
             this.One.TabIndex = 1;
             this.One.UseVisualStyleBackColor = true;
+            this.One.Click += new System.EventHandler(this.One_Click);
             // 
             // Two
             // 
             this.Two.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Two.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Two.Location = new System.Drawing.Point(13, 197);
+            this.Two.Location = new System.Drawing.Point(10, 160);
+            this.Two.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Two.Name = "Two";
-            this.Two.Size = new System.Drawing.Size(490, 49);
+            this.Two.Size = new System.Drawing.Size(368, 40);
             this.Two.TabIndex = 1;
             this.Two.UseVisualStyleBackColor = true;
+            this.Two.Click += new System.EventHandler(this.Two_Click);
             // 
             // Three
             // 
             this.Three.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Three.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Three.Location = new System.Drawing.Point(13, 244);
+            this.Three.Location = new System.Drawing.Point(10, 198);
+            this.Three.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Three.Name = "Three";
-            this.Three.Size = new System.Drawing.Size(490, 49);
+            this.Three.Size = new System.Drawing.Size(368, 40);
             this.Three.TabIndex = 1;
             this.Three.UseVisualStyleBackColor = true;
+            this.Three.Click += new System.EventHandler(this.Three_Click);
             // 
             // Four
             // 
             this.Four.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Four.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Four.Location = new System.Drawing.Point(13, 291);
+            this.Four.Location = new System.Drawing.Point(10, 236);
+            this.Four.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Four.Name = "Four";
-            this.Four.Size = new System.Drawing.Size(490, 49);
+            this.Four.Size = new System.Drawing.Size(368, 40);
             this.Four.TabIndex = 1;
             this.Four.UseVisualStyleBackColor = true;
+            this.Four.Click += new System.EventHandler(this.Four_Click);
             // 
             // Five
             // 
             this.Five.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Five.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Five.Location = new System.Drawing.Point(13, 338);
+            this.Five.Location = new System.Drawing.Point(10, 275);
+            this.Five.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Five.Name = "Five";
-            this.Five.Size = new System.Drawing.Size(490, 49);
+            this.Five.Size = new System.Drawing.Size(368, 40);
             this.Five.TabIndex = 1;
             this.Five.UseVisualStyleBackColor = true;
+            this.Five.Click += new System.EventHandler(this.Five_Click);
             // 
             // Six
             // 
             this.Six.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Six.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Six.Location = new System.Drawing.Point(13, 385);
+            this.Six.Location = new System.Drawing.Point(10, 313);
+            this.Six.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Six.Name = "Six";
-            this.Six.Size = new System.Drawing.Size(490, 49);
+            this.Six.Size = new System.Drawing.Size(368, 40);
             this.Six.TabIndex = 1;
             this.Six.UseVisualStyleBackColor = true;
+            this.Six.Click += new System.EventHandler(this.Six_Click);
             // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(615, 150);
+            this.button1.Location = new System.Drawing.Point(461, 122);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(422, 237);
+            this.button1.Size = new System.Drawing.Size(316, 193);
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -200,9 +219,10 @@
             // 
             this.print_transaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.print_transaction.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.print_transaction.Location = new System.Drawing.Point(615, 393);
+            this.print_transaction.Location = new System.Drawing.Point(461, 319);
+            this.print_transaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.print_transaction.Name = "print_transaction";
-            this.print_transaction.Size = new System.Drawing.Size(422, 53);
+            this.print_transaction.Size = new System.Drawing.Size(316, 43);
             this.print_transaction.TabIndex = 3;
             this.print_transaction.Text = "Print";
             this.print_transaction.UseVisualStyleBackColor = true;
@@ -211,9 +231,10 @@
             // 
             this.go_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.go_back.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.go_back.Location = new System.Drawing.Point(897, 470);
+            this.go_back.Location = new System.Drawing.Point(673, 382);
+            this.go_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.go_back.Name = "go_back";
-            this.go_back.Size = new System.Drawing.Size(140, 53);
+            this.go_back.Size = new System.Drawing.Size(105, 43);
             this.go_back.TabIndex = 4;
             this.go_back.Text = "Go Back";
             this.go_back.UseVisualStyleBackColor = true;
@@ -224,22 +245,24 @@
             this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(615, 12);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(461, 10);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(422, 100);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(316, 81);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(748, 162);
+            this.label1.Location = new System.Drawing.Point(561, 132);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 17);
+            this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Transactions Details";
             // 
@@ -247,9 +270,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(633, 197);
+            this.label2.Location = new System.Drawing.Point(475, 160);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Pump";
             // 
@@ -257,9 +281,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(633, 244);
+            this.label3.Location = new System.Drawing.Point(475, 198);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Deposit";
             // 
@@ -267,9 +292,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(633, 291);
+            this.label4.Location = new System.Drawing.Point(475, 236);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 17);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Change";
             // 
@@ -277,9 +303,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(633, 338);
+            this.label5.Location = new System.Drawing.Point(475, 275);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Total";
             // 
@@ -287,9 +314,10 @@
             // 
             this.date_time.AutoSize = true;
             this.date_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_time.Location = new System.Drawing.Point(910, 197);
+            this.date_time.Location = new System.Drawing.Point(682, 160);
+            this.date_time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.date_time.Name = "date_time";
-            this.date_time.Size = new System.Drawing.Size(52, 17);
+            this.date_time.Size = new System.Drawing.Size(41, 13);
             this.date_time.TabIndex = 6;
             this.date_time.Text = "label1";
             // 
@@ -297,9 +325,10 @@
             // 
             this.gal.AutoSize = true;
             this.gal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gal.Location = new System.Drawing.Point(910, 338);
+            this.gal.Location = new System.Drawing.Point(682, 275);
+            this.gal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gal.Name = "gal";
-            this.gal.Size = new System.Drawing.Size(52, 17);
+            this.gal.Size = new System.Drawing.Size(41, 13);
             this.gal.TabIndex = 6;
             this.gal.Text = "label1";
             // 
@@ -307,9 +336,10 @@
             // 
             this.pump_no.AutoSize = true;
             this.pump_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pump_no.Location = new System.Drawing.Point(703, 197);
+            this.pump_no.Location = new System.Drawing.Point(527, 160);
+            this.pump_no.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pump_no.Name = "pump_no";
-            this.pump_no.Size = new System.Drawing.Size(52, 17);
+            this.pump_no.Size = new System.Drawing.Size(41, 13);
             this.pump_no.TabIndex = 6;
             this.pump_no.Text = "label1";
             // 
@@ -317,9 +347,10 @@
             // 
             this.deposit.AutoSize = true;
             this.deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deposit.Location = new System.Drawing.Point(703, 244);
+            this.deposit.Location = new System.Drawing.Point(527, 198);
+            this.deposit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.deposit.Name = "deposit";
-            this.deposit.Size = new System.Drawing.Size(52, 17);
+            this.deposit.Size = new System.Drawing.Size(41, 13);
             this.deposit.TabIndex = 6;
             this.deposit.Text = "label1";
             // 
@@ -327,9 +358,10 @@
             // 
             this.change.AutoSize = true;
             this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.change.Location = new System.Drawing.Point(703, 291);
+            this.change.Location = new System.Drawing.Point(527, 236);
+            this.change.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.change.Name = "change";
-            this.change.Size = new System.Drawing.Size(52, 17);
+            this.change.Size = new System.Drawing.Size(41, 13);
             this.change.TabIndex = 6;
             this.change.Text = "label1";
             // 
@@ -337,9 +369,10 @@
             // 
             this.total.AutoSize = true;
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.Location = new System.Drawing.Point(703, 338);
+            this.total.Location = new System.Drawing.Point(527, 275);
+            this.total.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(52, 17);
+            this.total.Size = new System.Drawing.Size(41, 13);
             this.total.TabIndex = 6;
             this.total.Text = "label1";
             // 
@@ -347,9 +380,10 @@
             // 
             this.month_year_lbl.AutoSize = true;
             this.month_year_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.month_year_lbl.Location = new System.Drawing.Point(212, 28);
+            this.month_year_lbl.Location = new System.Drawing.Point(159, 23);
+            this.month_year_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.month_year_lbl.Name = "month_year_lbl";
-            this.month_year_lbl.Size = new System.Drawing.Size(88, 20);
+            this.month_year_lbl.Size = new System.Drawing.Size(78, 17);
             this.month_year_lbl.TabIndex = 7;
             this.month_year_lbl.Text = "July,2018";
             // 
@@ -357,18 +391,19 @@
             // 
             this.day_lbl.AutoSize = true;
             this.day_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.day_lbl.Location = new System.Drawing.Point(241, 100);
+            this.day_lbl.Location = new System.Drawing.Point(181, 81);
+            this.day_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.day_lbl.Name = "day_lbl";
-            this.day_lbl.Size = new System.Drawing.Size(19, 20);
+            this.day_lbl.Size = new System.Drawing.Size(17, 17);
             this.day_lbl.TabIndex = 7;
             this.day_lbl.Text = "1";
             // 
             // Transactions_View
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1049, 544);
+            this.ClientSize = new System.Drawing.Size(787, 442);
             this.Controls.Add(this.day_lbl);
             this.Controls.Add(this.month_year_lbl);
             this.Controls.Add(this.gal);
@@ -399,6 +434,7 @@
             this.Controls.Add(this.next_month);
             this.Controls.Add(this.previous_month);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Transactions_View";
             this.Text = "Transactions_View";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -416,12 +452,12 @@
         private System.Windows.Forms.Button next_day;
         private System.Windows.Forms.Button previous_btn;
         private System.Windows.Forms.Button next_btn;
-        public System.Windows.Forms.Button One;
-        public System.Windows.Forms.Button Two;
-        public System.Windows.Forms.Button Three;
-        public System.Windows.Forms.Button Four;
-        public System.Windows.Forms.Button Five;
-        public System.Windows.Forms.Button Six;
+        private System.Windows.Forms.Button One;
+        private System.Windows.Forms.Button Two;
+        private System.Windows.Forms.Button Three;
+        private System.Windows.Forms.Button Four;
+        private System.Windows.Forms.Button Five;
+        private System.Windows.Forms.Button Six;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button print_transaction;
         private System.Windows.Forms.Button go_back;
