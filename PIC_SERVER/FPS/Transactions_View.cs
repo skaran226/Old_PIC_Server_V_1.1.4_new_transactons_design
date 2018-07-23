@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO.Ports;
@@ -21,6 +21,7 @@ namespace FPS
         public Transactions_View()
         {
             InitializeComponent();
+
         }
 
 
@@ -48,24 +49,35 @@ namespace FPS
             
         }
 
-        int start = 6, end = 12;
+        int iPage = 1;
         private void previous_btn_Click(object sender, EventArgs e)
         {
 
             ClearSelection();
             ClearTransactionsDetails();
-            next_btn.Enabled = true;
-            start -= 6;
-            end -= 6;
-            if (start >= 0) {
+            int iButtonIndex;
+            int iTranIndex;
 
-                Pre_Limit(start, end);
+            iPage--;
+
+            iButtonIndex = 0;
+            for (iTranIndex = (6 * (iPage - 1)); iTranIndex < (6 * iPage); iTranIndex++)
+            {
+                if (iTranIndex < lCompletedTrans.Count)
+                {
+                    iButtonIndex++;
+                    Update_Transactions_ButtonText(iButtonIndex, "PUMP: " + lCompletedTrans[iTranIndex].sPump + " @ " + lCompletedTrans[iTranIndex].sShowTime + "\nPAID: $" + lCompletedTrans[iTranIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iTranIndex].sChange);
+                }
             }
-            if (start <= 0) {
-                previous_btn.Enabled = false;
-                start = 6;
-                end = 12;
 
+            if (lCompletedTrans.Count > 6 * iPage)
+            {
+                next_btn.Visible = true;
+            }
+
+            if (iPage == 1)
+            {
+                previous_btn.Visible = false;
             }
         }
 
@@ -76,20 +88,34 @@ namespace FPS
             ClearSelection();
             ClearTransactionsDetails();
 
-           
 
-            if (iCount > start)
+            int iButtonIndex;
+            int iTranIndex;
+
+            iPage++;
+
+            iButtonIndex = 0;
+            for (iTranIndex = (6 * (iPage - 1)); iTranIndex < (6 * iPage); iTranIndex++)
             {
-                Next_Limit(start, end);
+                if (iTranIndex < lCompletedTrans.Count)
+                {
+                    iButtonIndex++;
 
-               
-
+                    Update_Transactions_ButtonText(iButtonIndex, "PUMP: " + lCompletedTrans[iTranIndex].sPump + " @ " + lCompletedTrans[iTranIndex].sShowTime + "\nPAID: $" + lCompletedTrans[iTranIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iTranIndex].sChange);
+                }
             }
-            else {
 
-                next_btn.Enabled = false;
-
+            if (lCompletedTrans.Count <=  6* iPage)
+            {
+                next_btn.Visible = false;
             }
+
+            if (iPage == 2)
+            {
+                previous_btn.Visible = true;
+            }
+
+          
 
 
 
@@ -231,6 +257,7 @@ namespace FPS
 
         private void Transactions_View_Load(object sender, EventArgs e)
         {
+            previous_btn.Visible = false;
             UpdateCompletedTransView();
         }
    
@@ -347,42 +374,6 @@ namespace FPS
         }
 
 
-        private void Next_Limit(int start, int end) {
-            int begining_index = 0;
-            for (int i = start; i < end; i++) {
-                begining_index++;
-                if (i < iCount)
-                {
-
-                    Update_Transactions_ButtonText(begining_index, "PUMP: " + lCompletedTrans[i].sPump + " @ " + lCompletedTrans[i].sShowTime + "PAID: $" + lCompletedTrans[i].sDeposit + "  CHANGE: $" + lCompletedTrans[i].sChange);
-                }
-                else {
-                    next_btn.Enabled = false;
-                    break;
-                }
-            }
-        
-        }
-
-        private void Pre_Limit(int start, int end)
-        {
-
-            for (int i = start; i < end; i++)
-            {
-
-                if (i >= 0)
-                {
-
-                    Update_Transactions_ButtonText(i+1, "PUMP: " + lCompletedTrans[i].sPump + " @ " + lCompletedTrans[i].sShowTime + "PAID: $" + lCompletedTrans[i].sDeposit + "  CHANGE: $" + lCompletedTrans[i].sChange);
-                }
-                else
-                {
-                    next_btn.Enabled = false;
-                    break;
-                }
-            }
-
-        }
 
         private void ClearButtonTexts() {
             Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
