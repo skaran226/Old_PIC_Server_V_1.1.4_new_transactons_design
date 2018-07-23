@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 using System.IO.Ports;
 using System.Windows.Forms;
 using System.IO;
@@ -46,17 +45,56 @@ namespace FPS
 
         private void next_day_Click(object sender, EventArgs e)
         {
-
+            
         }
 
+        int start = 6, end = 12;
         private void previous_btn_Click(object sender, EventArgs e)
         {
 
+            ClearSelection();
+            ClearTransactionsDetails();
+            next_btn.Enabled = true;
+            start -= 6;
+            end -= 6;
+            if (start >= 0) {
+
+                Pre_Limit(start, end);
+            }
+            if (start <= 0) {
+                previous_btn.Enabled = false;
+                start = 6;
+                end = 12;
+
+            }
         }
 
         private void next_btn_Click(object sender, EventArgs e)
         {
+            previous_btn.Enabled = true;
+            ClearButtonTexts();
+            ClearSelection();
+            ClearTransactionsDetails();
 
+           
+
+            if (iCount > start)
+            {
+                Next_Limit(start, end);
+
+               
+
+            }
+            else {
+
+                next_btn.Enabled = false;
+
+            }
+
+
+
+
+            
         }
 
         private void print_transaction_Click(object sender, EventArgs e)
@@ -74,6 +112,7 @@ namespace FPS
             if (One.Text.Trim() != "") {
 
                SetButton(1);
+               SetTransactionsDetails(1);
             }
         }
 
@@ -83,6 +122,7 @@ namespace FPS
             {
 
                SetButton(2);
+               SetTransactionsDetails(2);
             }
         }
 
@@ -92,6 +132,7 @@ namespace FPS
             {
 
                 SetButton(3);
+                SetTransactionsDetails(3);
             }
         }
 
@@ -101,6 +142,7 @@ namespace FPS
             {
 
                SetButton(4);
+               SetTransactionsDetails(4);
             }
         }
 
@@ -110,6 +152,7 @@ namespace FPS
             {
 
                 SetButton(5);
+                SetTransactionsDetails(5);
             }
         }
 
@@ -119,6 +162,7 @@ namespace FPS
             {
 
                SetButton(6);
+               SetTransactionsDetails(6);
             }
         }
 
@@ -129,6 +173,7 @@ namespace FPS
             foreach (Button btn in btnarr)
             {
                 btn.BackColor = Color.White;
+
             }
 
             if (index == 1) {
@@ -180,6 +225,7 @@ namespace FPS
 
         public static void SetButtonText(Button btn, string lbl)
         {
+
             btn.Text = lbl;
         }
 
@@ -190,6 +236,9 @@ namespace FPS
    
         public  void Update_Transactions_ButtonText(int index, string lbl)
         {
+
+            
+
             if (index == 1)
             {
 
@@ -223,11 +272,11 @@ namespace FPS
         }
 
 
-
+        int iCount;
         
         public void UpdateCompletedTransView()
         {
-            int iIndex, iCount;
+            int iIndex;
             string sQuery;
             OleDbCommand dbCmd;
             OleDbDataReader drRecordSet;
@@ -246,8 +295,10 @@ namespace FPS
 
 
             //sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, CHANGE, GRADE, VOLUME, SHOW_TIME, TRAN_ID FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC";
+            
             sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, GRADE, VOLUME, SHOW_TIME, TRAN_ID,CHANGE FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC;";
             dbCmd = SQL_SERVER.Set_Sql_Server_Cmd(sQuery);
+            
             drRecordSet = dbCmd.ExecuteReader();
 
             Debug.WriteLine(sQuery);
@@ -272,7 +323,7 @@ namespace FPS
                 iCount++;
             }
 
-            for (iIndex = 0; iIndex <= 6; iIndex++)
+            for (iIndex = 0; iIndex <6; iIndex++)
             {
                 if (iIndex < iCount)
                 {
@@ -283,6 +334,90 @@ namespace FPS
             drRecordSet.Dispose();
             SQL_SERVER.Close_Sql_Sever_Conn();
         }
+
+
+        private void SetTransactionsDetails(int index)
+        {
+            pump_no.Text = lCompletedTrans[index-1].sPump;
+            deposit.Text = lCompletedTrans[index-1].sDeposit;
+            change.Text = lCompletedTrans[index-1].sChange;
+            total.Text = lCompletedTrans[index-1].sPurchase;
+            date_time.Text = lCompletedTrans[index-1].sShowTime;
+            gal.Text = lCompletedTrans[index-1].sVolume;
+        }
+
+
+        private void Next_Limit(int start, int end) {
+            int begining_index = 0;
+            for (int i = start; i < end; i++) {
+                begining_index++;
+                if (i < iCount)
+                {
+
+                    Update_Transactions_ButtonText(begining_index, "PUMP: " + lCompletedTrans[i].sPump + " @ " + lCompletedTrans[i].sShowTime + "PAID: $" + lCompletedTrans[i].sDeposit + "  CHANGE: $" + lCompletedTrans[i].sChange);
+                }
+                else {
+                    next_btn.Enabled = false;
+                    break;
+                }
+            }
+        
+        }
+
+        private void Pre_Limit(int start, int end)
+        {
+
+            for (int i = start; i < end; i++)
+            {
+
+                if (i >= 0)
+                {
+
+                    Update_Transactions_ButtonText(i+1, "PUMP: " + lCompletedTrans[i].sPump + " @ " + lCompletedTrans[i].sShowTime + "PAID: $" + lCompletedTrans[i].sDeposit + "  CHANGE: $" + lCompletedTrans[i].sChange);
+                }
+                else
+                {
+                    next_btn.Enabled = false;
+                    break;
+                }
+            }
+
+        }
+
+        private void ClearButtonTexts() {
+            Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
+
+            foreach (Button btn in btnarr)
+            {
+                btn.Text = "";
+                btn.BackColor = Color.White;
+                btn.FlatAppearance.MouseOverBackColor = Color.White;
+            }
+        }
+
+        private void ClearSelection() {
+
+            Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
+
+            foreach (Button btn in btnarr)
+            {
+                
+                btn.BackColor = Color.White;
+                btn.FlatAppearance.MouseOverBackColor = Color.White;
+            }
+        }
+
+        private void ClearTransactionsDetails() {
+
+            pump_no.Text = "";
+            deposit.Text = "";
+            change.Text = "";
+            total.Text = "";
+            date_time.Text = "";
+            gal.Text = "";
+        }
+
+      
 
         
     }
