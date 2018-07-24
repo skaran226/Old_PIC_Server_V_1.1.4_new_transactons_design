@@ -28,6 +28,8 @@ namespace FPS
         public static List<DB.TransStruct> lCompletedTrans = new List<DB.TransStruct>();
 
 
+        string date_formate = "";
+
         string lblMonth = "";
         string[] month_arr = new string[] {"Jan","Feb","March","Apirl","May","June","July","Aug","Sep","Oct","Nov","Dec"};
         int m_inc_dec = 0;
@@ -44,6 +46,22 @@ namespace FPS
             }
 
             month_year_lbl.Text = month_arr[m_inc_dec].ToString() + ",2018";
+
+
+
+            /*if (m_inc_dec + 1 <= 9)
+            {
+
+                date_formate = day_lbl.Text.ToString() + "-0" + (m_inc_dec + 1) + "-2018";
+            }
+            else
+            {
+                date_formate = day_lbl.Text.ToString() + "-" + (m_inc_dec + 1) + "-2018";
+            }*/
+
+
+            //GetChooseTransations(date_formate);
+           // MessageBox.Show(date_formate + "");
             
         }
 
@@ -70,15 +88,41 @@ namespace FPS
 
             month_year_lbl.Text = month_arr[m_inc_dec].ToString() + ",2018";
 
-           // MessageBox.Show(lblMonth + "");
+            /*if (m_inc_dec + 1 <= 9)
+            {
+
+                date_formate = day_lbl.Text.ToString() + "-0" + (m_inc_dec + 1) + "-2018";
+            }
+            else {
+                date_formate = day_lbl.Text.ToString() + "-" + (m_inc_dec + 1) + "-2018";
+            }*/
+
+            
+
+
+
+           // GetChooseTransations(date_formate);
+
+
+
+
+           //MessageBox.Show(date_formate + "");
         }
 
 
         int day_inc_dec;
         private void previous_day_Click(object sender, EventArgs e)
         {
+            day_inc_dec = Convert.ToInt32(day_lbl.Text.ToString());
             day_inc_dec--;
-            day_lbl.Text = day_inc_dec.ToString();
+            if (day_inc_dec <= 9)
+            {
+                day_lbl.Text = "0" + day_inc_dec.ToString();
+            }
+            else {
+                day_lbl.Text = day_inc_dec.ToString();
+            }
+            
             if (day_inc_dec <= 1) {
 
                 ButtonVisibility(previous_day, false);
@@ -87,6 +131,25 @@ namespace FPS
             if (day_inc_dec <= 30) {
                 ButtonVisibility(next_day, true);
             }
+
+
+            lblMonth = month_year_lbl.Text.ToString().Split(',')[0];
+
+            int m = VerifyMonth(lblMonth);
+
+            if (m <= 9)
+            {
+
+                date_formate = day_lbl.Text.ToString() + "-0" + (m) + "-2018";
+            }
+            else
+            {
+                date_formate = day_lbl.Text.ToString() + "-" + (m) + "-2018";
+            }
+
+            GetChooseTransations(date_formate);
+
+           // MessageBox.Show(date_formate + "");
         }
 
         private void next_day_Click(object sender, EventArgs e)
@@ -94,7 +157,16 @@ namespace FPS
             day_inc_dec = Convert.ToInt32(day_lbl.Text.ToString());
 
             day_inc_dec++;
-            day_lbl.Text = day_inc_dec.ToString();
+
+            if (day_inc_dec <= 9)
+            {
+                day_lbl.Text = "0" + day_inc_dec.ToString();
+            }
+            else
+            {
+                day_lbl.Text = day_inc_dec.ToString();
+            }
+            
 
             if (day_inc_dec >= 31)
             {
@@ -105,10 +177,24 @@ namespace FPS
             if (day_inc_dec > 1) {
                 ButtonVisibility(previous_day, true);
             }
-            
-            
 
 
+            lblMonth = month_year_lbl.Text.ToString().Split(',')[0];
+
+            int m = VerifyMonth(lblMonth);
+
+            if (m <= 9)
+            {
+
+                date_formate = day_lbl.Text.ToString() + "-0" + (m) + "-2018";
+            }
+            else
+            {
+                date_formate = day_lbl.Text.ToString() + "-" + (m) + "-2018";
+            }
+
+            GetChooseTransations(date_formate);
+            //MessageBox.Show(date_formate + "");
 
         }
 
@@ -194,7 +280,7 @@ namespace FPS
 
         private void go_back_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         private void One_Click(object sender, EventArgs e)
@@ -325,7 +411,7 @@ namespace FPS
         private void Transactions_View_Load(object sender, EventArgs e)
         {
             previous_btn.Visible = false;
-            UpdateCompletedTransView();
+            UpdateCompletedTransView(DateTime.Now.ToString("dd-MM-yyyy"));
 
 
             if (month_year_lbl.Text.ToString().Split(',')[0] == "Jan") {
@@ -337,6 +423,28 @@ namespace FPS
 
                 ButtonVisibility(previous_day, false);
             }
+
+
+            string day = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+
+            month = getMonth(month);
+
+            month_year_lbl.Text = month + "," + year;
+            day_lbl.Text = day;
+
+
+
+
+
+           /* if (lCompletedTrans.Count <= 6 * iPage)
+            {
+
+                ButtonVisibility(next_btn, false);
+            }*/
+
+            
         }
 
         public void Update_Transactions_ButtonText(int index, string lbl)
@@ -379,7 +487,7 @@ namespace FPS
 
         int iCount;
 
-        public void UpdateCompletedTransView()
+        public void UpdateCompletedTransView(string datetimeformate)
         {
             int iIndex;
             string sQuery;
@@ -401,7 +509,7 @@ namespace FPS
 
             //sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, CHANGE, GRADE, VOLUME, SHOW_TIME, TRAN_ID FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC";
 
-            sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, GRADE, VOLUME, SHOW_TIME, TRAN_ID,CHANGE FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC;";
+            sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, GRADE, VOLUME, SHOW_TIME, TRAN_ID,CHANGE FROM TRANSACTIONS WHERE SHOW_TIME LIKE '%" + datetimeformate + "%' ORDER BY COMPLETED_TIME DESC;";
             dbCmd = SQL_SERVER.Set_Sql_Server_Cmd(sQuery);
 
             drRecordSet = dbCmd.ExecuteReader();
@@ -571,7 +679,162 @@ namespace FPS
             }*/
             return monthNum;
        }
-        
+
+       private string getMonth(string month){
+           string ret_month = "";
+           if (month == "01") {
+               ret_month = "Jan";
+           }
+
+           if (month == "01")
+           {
+               ret_month = "Jan";
+           }
+
+           if (month == "02")
+           {
+               ret_month = "Feb";
+           }
+
+           if (month == "03")
+           {
+               ret_month = "March";
+           }
+
+           if (month == "04")
+           {
+               ret_month = "Apirl";
+
+           }
+
+           if (month == "05")
+           {
+               ret_month = "May";
+           }
+
+           if (month == "06")
+           {
+               ret_month = "June";
+           }
+
+           if (month == "07")
+           {
+               ret_month = "July";
+           }
+
+           if (month == "08")
+           {
+               ret_month = "Aug";
+           }
+
+           if (month == "09")
+           {
+               ret_month = "Sep";
+           }
+
+           if (month == "10")
+           {
+               ret_month = "Oct";
+           }
+
+           if (month == "11")
+           {
+               ret_month = "Nov";
+           }
+
+           if (month == "12")
+           {
+               ret_month = "Dec";
+           }
+
+
+
+           return ret_month;
+       }
+
+
+        private void GetChooseTransations(string datetimeformate) {
+
+            int iIndex;
+            string sQuery;
+            OleDbCommand dbCmd;
+            OleDbDataReader drRecordSet;
+            /* SqlCommand dbCmd;
+             SqlDataReader drRecordSet;*/
+            DB.TransStruct myTransStruct;
+
+
+
+
+
+            Debug.WriteLine("UPDATE COMPLETE TRANSACTIONS VIEW");
+
+            SQL_SERVER.Set_Sql_Server_Conn();
+            SQL_SERVER.Open_Sql_Server_Conn();
+
+
+            //sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, CHANGE, GRADE, VOLUME, SHOW_TIME, TRAN_ID FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC";
+
+            sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, GRADE, VOLUME, SHOW_TIME, TRAN_ID,CHANGE FROM TRANSACTIONS WHERE SHOW_TIME LIKE '%" + datetimeformate + "%' ORDER BY COMPLETED_TIME DESC;";
+            dbCmd = SQL_SERVER.Set_Sql_Server_Cmd(sQuery);
+
+            drRecordSet = dbCmd.ExecuteReader();
+
+            Debug.WriteLine(sQuery);
+            Debug.WriteLine(drRecordSet.HasRows);
+
+            
+            if (drRecordSet.HasRows)
+            {
+                iCount = 0;
+                lCompletedTrans.Clear();
+                ClearButtonTexts();
+                ClearSelection();
+                ClearTransactionsDetails();
+
+                while (drRecordSet.Read())
+                {
+                    myTransStruct.sPIC = drRecordSet["PIC"].ToString();
+                    myTransStruct.sPump = drRecordSet["PUMP"].ToString();
+                    myTransStruct.sDeposit = drRecordSet["DEPOSIT"].ToString();
+                    myTransStruct.sPurchase = drRecordSet["PURCHASE"].ToString();
+                    myTransStruct.sPrice = drRecordSet["PRICE"].ToString();
+                    myTransStruct.sChange = drRecordSet["CHANGE"].ToString();
+                    myTransStruct.sGrade = drRecordSet["GRADE"].ToString();
+                    myTransStruct.sVolume = drRecordSet["VOLUME"].ToString();
+                    myTransStruct.sShowTime = drRecordSet["SHOW_TIME"].ToString();
+                    myTransStruct.sTranId = drRecordSet["TRAN_ID"].ToString();
+
+                    lCompletedTrans.Add(myTransStruct);
+                    iCount++;
+                }
+
+                for (iIndex = 0; iIndex < 6; iIndex++)
+                {
+                    if (iIndex < iCount)
+                    {
+                        Update_Transactions_ButtonText(iIndex + 1, "PUMP: " + lCompletedTrans[iIndex].sPump + " @ " + lCompletedTrans[iIndex].sShowTime + "PAID: $" + lCompletedTrans[iIndex].sDeposit + "  CHANGE: $" + lCompletedTrans[iIndex].sChange);
+                    }
+                }
+
+
+                iPage = 1;
+
+                if (lCompletedTrans.Count <= 6 * iPage)
+                {
+
+                    ButtonVisibility(next_btn, false);
+                }
+
+            }
+            else {
+                Display.ShowMessageBox("No data Available", 3);
+            }
+            dbCmd.Dispose();
+            drRecordSet.Dispose();
+            SQL_SERVER.Close_Sql_Sever_Conn();
+
+        }
 
     }
 }
