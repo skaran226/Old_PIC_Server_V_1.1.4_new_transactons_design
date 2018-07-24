@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO.Ports;
@@ -31,17 +31,19 @@ namespace FPS
         string date_formate = "";
 
         string lblMonth = "";
-        string[] month_arr = new string[] {"Jan","Feb","March","Apirl","May","June","July","Aug","Sep","Oct","Nov","Dec"};
+        string[] month_arr = new string[] { "Jan", "Feb", "March", "Apirl", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" };
         int m_inc_dec = 0;
         private void previous_month_Click(object sender, EventArgs e)
         {
             m_inc_dec--;
 
-            if (m_inc_dec <= 0) {
+            if (m_inc_dec <= 0)
+            {
                 ButtonVisibility(previous_month, false);
             }
 
-            if (m_inc_dec > 1) {
+            if (m_inc_dec > 1)
+            {
                 ButtonVisibility(next_month, true);
             }
 
@@ -61,8 +63,8 @@ namespace FPS
 
 
             //GetChooseTransations(date_formate);
-           // MessageBox.Show(date_formate + "");
-            
+            // MessageBox.Show(date_formate + "");
+
         }
 
         private void next_month_Click(object sender, EventArgs e)
@@ -70,18 +72,20 @@ namespace FPS
             lblMonth = month_year_lbl.Text.ToString().Split(',')[0];
 
             int m = VerifyMonth(lblMonth);
-            m_inc_dec = m-1;
+            m_inc_dec = m - 1;
             m_inc_dec++;
 
             if (m_inc_dec == 11)
             {
                 ButtonVisibility(next_month, false);
             }
-            else {
+            else
+            {
                 ButtonVisibility(next_month, true);
             }
 
-            if (m_inc_dec >=1) {
+            if (m_inc_dec >= 1)
+            {
 
                 ButtonVisibility(previous_month, true);
             }
@@ -97,16 +101,16 @@ namespace FPS
                 date_formate = day_lbl.Text.ToString() + "-" + (m_inc_dec + 1) + "-2018";
             }*/
 
-            
-
-
-
-           // GetChooseTransations(date_formate);
 
 
 
 
-           //MessageBox.Show(date_formate + "");
+            // GetChooseTransations(date_formate);
+
+
+
+
+            //MessageBox.Show(date_formate + "");
         }
 
 
@@ -119,16 +123,19 @@ namespace FPS
             {
                 day_lbl.Text = "0" + day_inc_dec.ToString();
             }
-            else {
+            else
+            {
                 day_lbl.Text = day_inc_dec.ToString();
             }
-            
-            if (day_inc_dec <= 1) {
+
+            if (day_inc_dec <= 1)
+            {
 
                 ButtonVisibility(previous_day, false);
             }
 
-            if (day_inc_dec <= 30) {
+            if (day_inc_dec <= 30)
+            {
                 ButtonVisibility(next_day, true);
             }
 
@@ -149,7 +156,7 @@ namespace FPS
 
             GetChooseTransations(date_formate);
 
-           // MessageBox.Show(date_formate + "");
+            // MessageBox.Show(date_formate + "");
         }
 
         private void next_day_Click(object sender, EventArgs e)
@@ -166,7 +173,7 @@ namespace FPS
             {
                 day_lbl.Text = day_inc_dec.ToString();
             }
-            
+
 
             if (day_inc_dec >= 31)
             {
@@ -174,7 +181,8 @@ namespace FPS
                 ButtonVisibility(next_day, false);
             }
 
-            if (day_inc_dec > 1) {
+            if (day_inc_dec > 1)
+            {
                 ButtonVisibility(previous_day, true);
             }
 
@@ -232,7 +240,7 @@ namespace FPS
 
         private void next_btn_Click(object sender, EventArgs e)
         {
-            
+
             ClearButtonTexts();
             ClearSelection();
             ClearTransactionsDetails();
@@ -256,7 +264,7 @@ namespace FPS
 
             if (lCompletedTrans.Count <= 6 * iPage)
             {
-                
+
                 ButtonVisibility(next_btn, false);
             }
 
@@ -414,12 +422,14 @@ namespace FPS
             UpdateCompletedTransView(DateTime.Now.ToString("dd-MM-yyyy"));
 
 
-            if (month_year_lbl.Text.ToString().Split(',')[0] == "Jan") {
+            if (month_year_lbl.Text.ToString().Split(',')[0] == "Jan")
+            {
 
                 ButtonVisibility(previous_month, false);
             }
 
-            if (day_lbl.Text.ToString() == "01") {
+            if (day_lbl.Text.ToString() == "01")
+            {
 
                 ButtonVisibility(previous_day, false);
             }
@@ -438,13 +448,13 @@ namespace FPS
 
 
 
-           /* if (lCompletedTrans.Count <= 6 * iPage)
-            {
+            /* if (lCompletedTrans.Count <= 6 * iPage)
+             {
 
-                ButtonVisibility(next_btn, false);
-            }*/
+                 ButtonVisibility(next_btn, false);
+             }*/
 
-            
+
         }
 
         public void Update_Transactions_ButtonText(int index, string lbl)
@@ -599,26 +609,30 @@ namespace FPS
 
 
 
-        private void ButtonVisibility(Button btn,bool visiblity){
+        private void ButtonVisibility(Button btn, bool visiblity)
+        {
 
             btn.Visible = visiblity;
         }
 
         int monthNum;
-        private int VerifyMonth(string month) {
+        private int VerifyMonth(string month)
+        {
 
-            if (month == "Jan") {
+            if (month == "Jan")
+            {
 
                 //ButtonVisibility(previous_month, false);
                 monthNum = 01;
-                
+
             }
 
-           /* if (month != "Jan") {
-                ButtonVisibility(previous_month, true);
-            }*/
+            /* if (month != "Jan") {
+                 ButtonVisibility(previous_month, true);
+             }*/
 
-            if (month == "Feb") {
+            if (month == "Feb")
+            {
                 monthNum = 02;
             }
 
@@ -647,7 +661,8 @@ namespace FPS
                 monthNum = 07;
             }
 
-            if (month == "Aug") {
+            if (month == "Aug")
+            {
                 monthNum = 08;
             }
 
@@ -673,87 +688,90 @@ namespace FPS
                 //ButtonVisibility(next_month, false);
             }
 
-           /* if (month != "Dec")
-            {
-                ButtonVisibility(next_month, true);
-            }*/
+            /* if (month != "Dec")
+             {
+                 ButtonVisibility(next_month, true);
+             }*/
             return monthNum;
-       }
+        }
 
-       private string getMonth(string month){
-           string ret_month = "";
-           if (month == "01") {
-               ret_month = "Jan";
-           }
+        private string getMonth(string month)
+        {
+            string ret_month = "";
+            if (month == "01")
+            {
+                ret_month = "Jan";
+            }
 
-           if (month == "01")
-           {
-               ret_month = "Jan";
-           }
+            if (month == "01")
+            {
+                ret_month = "Jan";
+            }
 
-           if (month == "02")
-           {
-               ret_month = "Feb";
-           }
+            if (month == "02")
+            {
+                ret_month = "Feb";
+            }
 
-           if (month == "03")
-           {
-               ret_month = "March";
-           }
+            if (month == "03")
+            {
+                ret_month = "March";
+            }
 
-           if (month == "04")
-           {
-               ret_month = "Apirl";
+            if (month == "04")
+            {
+                ret_month = "Apirl";
 
-           }
+            }
 
-           if (month == "05")
-           {
-               ret_month = "May";
-           }
+            if (month == "05")
+            {
+                ret_month = "May";
+            }
 
-           if (month == "06")
-           {
-               ret_month = "June";
-           }
+            if (month == "06")
+            {
+                ret_month = "June";
+            }
 
-           if (month == "07")
-           {
-               ret_month = "July";
-           }
+            if (month == "07")
+            {
+                ret_month = "July";
+            }
 
-           if (month == "08")
-           {
-               ret_month = "Aug";
-           }
+            if (month == "08")
+            {
+                ret_month = "Aug";
+            }
 
-           if (month == "09")
-           {
-               ret_month = "Sep";
-           }
+            if (month == "09")
+            {
+                ret_month = "Sep";
+            }
 
-           if (month == "10")
-           {
-               ret_month = "Oct";
-           }
+            if (month == "10")
+            {
+                ret_month = "Oct";
+            }
 
-           if (month == "11")
-           {
-               ret_month = "Nov";
-           }
+            if (month == "11")
+            {
+                ret_month = "Nov";
+            }
 
-           if (month == "12")
-           {
-               ret_month = "Dec";
-           }
-
-
-
-           return ret_month;
-       }
+            if (month == "12")
+            {
+                ret_month = "Dec";
+            }
 
 
-        private void GetChooseTransations(string datetimeformate) {
+
+            return ret_month;
+        }
+
+
+        private void GetChooseTransations(string datetimeformate)
+        {
 
             int iIndex;
             string sQuery;
@@ -783,7 +801,7 @@ namespace FPS
             Debug.WriteLine(sQuery);
             Debug.WriteLine(drRecordSet.HasRows);
 
-            
+
             if (drRecordSet.HasRows)
             {
                 iCount = 0;
@@ -827,7 +845,8 @@ namespace FPS
                 }
 
             }
-            else {
+            else
+            {
                 Display.ShowMessageBox("No data Available", 3);
             }
             dbCmd.Dispose();
