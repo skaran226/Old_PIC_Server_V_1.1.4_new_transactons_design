@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO.Ports;
@@ -35,6 +35,11 @@ namespace FPS
         int m_inc_dec = 0;
         private void previous_month_Click(object sender, EventArgs e)
         {
+            lblMonth = month_year_lbl.Text.ToString().Split(',')[0];
+
+            int m = VerifyMonth(lblMonth);
+            m_inc_dec = m - 1;
+           
             m_inc_dec--;
 
             if (m_inc_dec <= 0)
