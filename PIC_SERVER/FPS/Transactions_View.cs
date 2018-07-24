@@ -28,25 +28,88 @@ namespace FPS
         public static List<DB.TransStruct> lCompletedTrans = new List<DB.TransStruct>();
 
 
-
+        string lblMonth = "";
+        string[] month_arr = new string[] {"Jan","Feb","March","Apirl","May","June","July","Aug","Sep","Oct","Nov","Dec"};
+        int m_inc_dec = 0;
         private void previous_month_Click(object sender, EventArgs e)
         {
+            m_inc_dec--;
 
+            if (m_inc_dec <= 0) {
+                ButtonVisibility(previous_month, false);
+            }
+
+            if (m_inc_dec > 1) {
+                ButtonVisibility(next_month, true);
+            }
+
+            month_year_lbl.Text = month_arr[m_inc_dec].ToString() + ",2018";
+            
         }
 
         private void next_month_Click(object sender, EventArgs e)
         {
+            lblMonth = month_year_lbl.Text.ToString().Split(',')[0];
 
+            int m = VerifyMonth(lblMonth);
+            m_inc_dec = m-1;
+            m_inc_dec++;
+
+            if (m_inc_dec == 11)
+            {
+                ButtonVisibility(next_month, false);
+            }
+            else {
+                ButtonVisibility(next_month, true);
+            }
+
+            if (m_inc_dec >=1) {
+
+                ButtonVisibility(previous_month, true);
+            }
+
+            month_year_lbl.Text = month_arr[m_inc_dec].ToString() + ",2018";
+
+           // MessageBox.Show(lblMonth + "");
         }
 
+
+        int day_inc_dec;
         private void previous_day_Click(object sender, EventArgs e)
         {
+            day_inc_dec--;
+            day_lbl.Text = day_inc_dec.ToString();
+            if (day_inc_dec <= 1) {
 
+                ButtonVisibility(previous_day, false);
+            }
+
+            if (day_inc_dec <= 30) {
+                ButtonVisibility(next_day, true);
+            }
         }
 
         private void next_day_Click(object sender, EventArgs e)
         {
+            day_inc_dec = Convert.ToInt32(day_lbl.Text.ToString());
+
+            day_inc_dec++;
+            day_lbl.Text = day_inc_dec.ToString();
+
+            if (day_inc_dec >= 31)
+            {
+
+                ButtonVisibility(next_day, false);
+            }
+
+            if (day_inc_dec > 1) {
+                ButtonVisibility(previous_day, true);
+            }
             
+            
+
+
+
         }
 
         int iPage = 1;
@@ -72,18 +135,18 @@ namespace FPS
 
             if (lCompletedTrans.Count > 6 * iPage)
             {
-                next_btn.Visible = true;
+                ButtonVisibility(next_btn, true);
             }
 
             if (iPage == 1)
             {
-                previous_btn.Visible = false;
+                ButtonVisibility(previous_btn, false);
             }
         }
 
         private void next_btn_Click(object sender, EventArgs e)
         {
-            previous_btn.Enabled = true;
+            
             ClearButtonTexts();
             ClearSelection();
             ClearTransactionsDetails();
@@ -105,22 +168,23 @@ namespace FPS
                 }
             }
 
-            if (lCompletedTrans.Count <=  6* iPage)
+            if (lCompletedTrans.Count <= 6 * iPage)
             {
-                next_btn.Visible = false;
+                
+                ButtonVisibility(next_btn, false);
             }
 
             if (iPage == 2)
             {
-                previous_btn.Visible = true;
+                ButtonVisibility(previous_btn, true);
             }
 
-          
 
 
 
 
-            
+
+
         }
 
         private void print_transaction_Click(object sender, EventArgs e)
@@ -135,10 +199,11 @@ namespace FPS
 
         private void One_Click(object sender, EventArgs e)
         {
-            if (One.Text.Trim() != "") {
+            if (One.Text.Trim() != "")
+            {
 
-               SetButton(1);
-               SetTransactionsDetails(1);
+                SetButton(1);
+                SetTransactionsDetails(1);
             }
         }
 
@@ -147,8 +212,8 @@ namespace FPS
             if (Two.Text.Trim() != "")
             {
 
-               SetButton(2);
-               SetTransactionsDetails(2);
+                SetButton(2);
+                SetTransactionsDetails(2);
             }
         }
 
@@ -167,8 +232,8 @@ namespace FPS
             if (Four.Text.Trim() != "")
             {
 
-               SetButton(4);
-               SetTransactionsDetails(4);
+                SetButton(4);
+                SetTransactionsDetails(4);
             }
         }
 
@@ -187,12 +252,13 @@ namespace FPS
             if (Six.Text.Trim() != "")
             {
 
-               SetButton(6);
-               SetTransactionsDetails(6);
+                SetButton(6);
+                SetTransactionsDetails(6);
             }
         }
 
-        public void SetButton(int index) {
+        public void SetButton(int index)
+        {
 
             Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
 
@@ -202,7 +268,8 @@ namespace FPS
 
             }
 
-            if (index == 1) {
+            if (index == 1)
+            {
 
                 Transactions_View.SetButtonColor(One, Color.Yellow);
             }
@@ -242,12 +309,12 @@ namespace FPS
         public static void SetButtonColor(Button btn, Color color)
         {
             btn.BackColor = color;
-            btn.FlatAppearance.MouseOverBackColor =color;
+            btn.FlatAppearance.MouseOverBackColor = color;
         }
 
 
-        
-       
+
+
 
         public static void SetButtonText(Button btn, string lbl)
         {
@@ -259,12 +326,23 @@ namespace FPS
         {
             previous_btn.Visible = false;
             UpdateCompletedTransView();
+
+
+            if (month_year_lbl.Text.ToString().Split(',')[0] == "Jan") {
+
+                ButtonVisibility(previous_month, false);
+            }
+
+            if (day_lbl.Text.ToString() == "01") {
+
+                ButtonVisibility(previous_day, false);
+            }
         }
-   
-        public  void Update_Transactions_ButtonText(int index, string lbl)
+
+        public void Update_Transactions_ButtonText(int index, string lbl)
         {
 
-            
+
 
             if (index == 1)
             {
@@ -300,7 +378,7 @@ namespace FPS
 
 
         int iCount;
-        
+
         public void UpdateCompletedTransView()
         {
             int iIndex;
@@ -322,10 +400,10 @@ namespace FPS
 
 
             //sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, CHANGE, GRADE, VOLUME, SHOW_TIME, TRAN_ID FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC";
-            
+
             sQuery = "SELECT COMPLETED_TIME, PIC, PUMP, DEPOSIT, PURCHASE, PRICE, GRADE, VOLUME, SHOW_TIME, TRAN_ID,CHANGE FROM TRANSACTIONS ORDER BY COMPLETED_TIME DESC;";
             dbCmd = SQL_SERVER.Set_Sql_Server_Cmd(sQuery);
-            
+
             drRecordSet = dbCmd.ExecuteReader();
 
             Debug.WriteLine(sQuery);
@@ -350,7 +428,7 @@ namespace FPS
                 iCount++;
             }
 
-            for (iIndex = 0; iIndex <6; iIndex++)
+            for (iIndex = 0; iIndex < 6; iIndex++)
             {
                 if (iIndex < iCount)
                 {
@@ -365,17 +443,18 @@ namespace FPS
 
         private void SetTransactionsDetails(int index)
         {
-            pump_no.Text = lCompletedTrans[index-1].sPump;
-            deposit.Text = lCompletedTrans[index-1].sDeposit;
-            change.Text = lCompletedTrans[index-1].sChange;
-            total.Text = lCompletedTrans[index-1].sPurchase;
-            date_time.Text = lCompletedTrans[index-1].sShowTime;
-            gal.Text = lCompletedTrans[index-1].sVolume;
+            pump_no.Text = lCompletedTrans[index - 1].sPump;
+            deposit.Text = lCompletedTrans[index - 1].sDeposit;
+            change.Text = lCompletedTrans[index - 1].sChange;
+            total.Text = lCompletedTrans[index - 1].sPurchase;
+            date_time.Text = lCompletedTrans[index - 1].sShowTime;
+            gal.Text = lCompletedTrans[index - 1].sVolume;
         }
 
 
 
-        private void ClearButtonTexts() {
+        private void ClearButtonTexts()
+        {
             Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
 
             foreach (Button btn in btnarr)
@@ -386,19 +465,21 @@ namespace FPS
             }
         }
 
-        private void ClearSelection() {
+        private void ClearSelection()
+        {
 
             Button[] btnarr = new Button[] { One, Two, Three, Four, Five, Six };
 
             foreach (Button btn in btnarr)
             {
-                
+
                 btn.BackColor = Color.White;
                 btn.FlatAppearance.MouseOverBackColor = Color.White;
             }
         }
 
-        private void ClearTransactionsDetails() {
+        private void ClearTransactionsDetails()
+        {
 
             pump_no.Text = "";
             deposit.Text = "";
@@ -408,8 +489,89 @@ namespace FPS
             gal.Text = "";
         }
 
-      
 
+
+        private void ButtonVisibility(Button btn,bool visiblity){
+
+            btn.Visible = visiblity;
+        }
+
+        int monthNum;
+        private int VerifyMonth(string month) {
+
+            if (month == "Jan") {
+
+                //ButtonVisibility(previous_month, false);
+                monthNum = 01;
+                
+            }
+
+           /* if (month != "Jan") {
+                ButtonVisibility(previous_month, true);
+            }*/
+
+            if (month == "Feb") {
+                monthNum = 02;
+            }
+
+            if (month == "March")
+            {
+                monthNum = 03;
+            }
+
+            if (month == "Apirl")
+            {
+                monthNum = 04;
+            }
+
+            if (month == "May")
+            {
+                monthNum = 05;
+            }
+
+            if (month == "June")
+            {
+                monthNum = 06;
+            }
+
+            if (month == "July")
+            {
+                monthNum = 07;
+            }
+
+            if (month == "Aug") {
+                monthNum = 08;
+            }
+
+            if (month == "Sep")
+            {
+                monthNum = 09;
+            }
+
+            if (month == "Oct")
+            {
+                monthNum = 10;
+            }
+
+            if (month == "Nov")
+            {
+                monthNum = 11;
+            }
+
+            if (month == "Dec")
+            {
+                monthNum = 12;
+
+                //ButtonVisibility(next_month, false);
+            }
+
+           /* if (month != "Dec")
+            {
+                ButtonVisibility(next_month, true);
+            }*/
+            return monthNum;
+       }
         
+
     }
 }
