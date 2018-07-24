@@ -7,4 +7,4 @@ Adding new Form Transaction_view for new Transaction process
 
 # Design (Done)
 
-# Code (Work in process)
+# Code (Done) [only printer command pending]
